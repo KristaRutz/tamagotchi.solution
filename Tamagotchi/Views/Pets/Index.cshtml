@@ -1,9 +1,12 @@
 @using Tamagotchi.Models;
 @using System.Collections.Generic;
 
+@{
+  Layout = "_Layout";
+}
+
+
 <h1>Tamagotchi World</h1>
-
-
 
 @* list of all tamagotchis and stats *@
 <h3>Tamagotchis</h3>
@@ -12,58 +15,57 @@
 {
   <p>There are no tamagotchis right now.</p>
 } 
-  @foreach (Pet pet in Model)
+
+@foreach (Pet pet in @Model)
   {
     <div class="pet-container">
-    <div class="pet-name">
-      <p>Name:
-        <a href='/pets/@pet.Id'>@pet.Name</a>
-      </p>
-    </div>
-
-    @if (@pet.IsTamagotchiDead())
-    {
-      <p>This pet has died.</p>
-    }
-
-    <div class="pet-property">
-      <form action="/pets/@pet.Id/Food" method="post">
-      <input name="Id" type="hidden" value="@pet.Id">
-        <p>
-          <span>@pet.Food</span>
-          <span>
-            <button type="submit">Feed</button>
-          </span>
+      <div class="pet-name">
+        <p>Name: <a href='/pets/@pet.Id'>@pet.Name</a>
         </p>
-      </form>
-    </div>
+      </div>
 
-    <div class="pet-property">
-      <form action="/pets/@pet.Id/Sleep" method="post">
-      <input name="Id" type="hidden" value="@pet.Id">
-        <p>
-          <span>@pet.Sleep</span>
-          <span>
-            <button type="submit">Sleep</button>
-          </span>
-        </p>
-      </form>
-    </div>
+      @if (@pet.IsTamagotchiDead())
+      {
+        <p>This pet has died.</p>
+      } else {
 
-    <div class="pet-property">
-      <form action="/pets/@pet.Id/Attention" method="post">
-      <input name="Id" type="hidden" value="@pet.Id">
-        <p>
-          <span>@pet.Attention</span>
-          <span>
-            <button type="submit">Play</button>
-          </span>
-        </p>
-      </form>
+        <div class="pet-property">
+          <form action="/pets/@pet.Id/Food" method="post">
+            <input name="Id" type="hidden" value="@pet.Id">
+            <p><span>@pet.Food</span>
+              <span>
+                <button type="submit">Feed</button>
+              </span>
+            </p>
+          </form>
+        </div>
+
+        <div class="pet-property">
+          <form action="/pets/@pet.Id/Sleep" method="post">
+            <input name="Id" type="hidden" value="@pet.Id">
+            <p><span>@pet.Sleep</span>
+              <span>
+                <button type="submit">Sleep</button>
+              </span>
+            </p>
+          </form>
+        </div>
+
+        <div class="pet-property">
+          <form action="/pets/@pet.Id/Attention" method="post">
+          <input name="Id" type="hidden" value="@pet.Id">
+            <p>
+              <span>@pet.Attention</span>
+              <span>
+                <button type="submit">Play</button>
+              </span>
+            </p>
+          </form>
+        </div>
+      }
     </div>
   }
 
-</div>
 @* buttons/links with actions *@
 <form action="/pets/updateall" method="post">
   <button class="btn btn-large" type="submit" name="button">Increase Time</button>
@@ -74,7 +76,3 @@
 <form class="btn btn-large" action="/pets/delete" method="post">
   <button type="submit" name="button">Remove all Pets</button>
 </form>
-
-<script>
-var timer = setInterval(function () { Slider() }, 25000);
-</script>

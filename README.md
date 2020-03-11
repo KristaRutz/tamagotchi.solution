@@ -10,12 +10,13 @@ Web app where you can create a Tamagotchi object by giving it a name and submitt
 
 ## Specs:
 
-| Spec                                                                                                | Input | Output |
-| :-------------------------------------------------------------------------------------------------- | :---- | :----- |
-| Create a tamagotchi object with a name and properties: food, attention, and rest                    | Yoyo  |        |
-| Create a list of tamagotchi objects with mentioned above properties and main page shows all of them | Yoyo  |        |
-| Create button to pass a time and decrease properties of all tamagotchis                             | Yoyo  |        |
-| Once tamagotchi                                                                                     | Yoyo  |        |
+| Spec                                                                                                | Input           | Output             |
+| :-------------------------------------------------------------------------------------------------- | :-------------- | :----------------- |
+| Create a Tamagotchi object with a name and properties: food, attention, and rest                    | Yoyo            |                    |
+| Create a list of Tamagotchi objects with mentioned above properties and main page shows all of them | Yoyo            |                    |
+| Create a button to increase Food Level for every Tamagotchi                                         | Yoyo            |                    |
+| Create button to pass a time and decrease properties of all tamagotchis                             | Decrease Levels | Food-=10,          |
+| Once some of tamagotchi's property level reached 0 it shows that tamagotchi is dead                 | Food = 0        | Tamagotchi is dead |
 
 - main page shows all tamagotchis and all of their property values as a GET
 - buttons --> call methods as a PATCH
