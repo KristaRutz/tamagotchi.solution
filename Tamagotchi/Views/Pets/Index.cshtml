@@ -28,7 +28,6 @@
     <div class="pet-food-container">
       <form action="/pets/@pet.Id/Food" method="post">
       <input class="pet-food" name="Id" type="hidden" value="@pet.Id">
-      <input name="petFood" type="hidden" value="@pet.Food">
         <p>
           <span>@pet.Food</span>
           <span>
@@ -41,7 +40,6 @@
     <div class="pet-sleep">
       <form action="/pets/@pet.Id/Sleep" method="post">
       <input class="pet-sleep" name="Id" type="hidden" value="@pet.Id">
-       <input name="petSleep" type="hidden" value="@pet.Sleep">
         <p>
           <span>@pet.Sleep</span>
           <span>
