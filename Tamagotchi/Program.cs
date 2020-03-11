@@ -1,7 +1,8 @@
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Tamagotchi.Models;
 
-namespace ToDoList
+namespace Tamagotchi
 {
   public class Program
   {
