@@ -8,21 +8,19 @@
 
 Web app where you can create a Tamagotchi object by giving it a name and submitting a form. Main page displaying the names of all your Tamagotchi objects with the values of their properties. It has buttons to feed it, play with it, and put it to sleep.
 
+## Summary
+
+Worked on testing, dynamic routing, and using REST conventions.
+
 ## Specs:
 
-| Spec                                                                                                | Input           | Output             |
-| :-------------------------------------------------------------------------------------------------- | :-------------- | :----------------- |
-| Create a Tamagotchi object with a name and properties: food, attention, and rest                    | Yoyo            |                    |
-| Create a list of Tamagotchi objects with mentioned above properties and main page shows all of them | Yoyo            |                    |
-| Create a button to increase Food Level for every Tamagotchi                                         | Yoyo            |                    |
-| Create button to pass a time and decrease properties of all tamagotchis                             | Decrease Levels | Food-=10,          |
-| Once some of tamagotchi's property level reached 0 it shows that tamagotchi is dead                 | Food = 0        | Tamagotchi is dead |
-
-- main page shows all tamagotchis and all of their property values as a GET
-- buttons --> call methods as a PATCH
-  - feed(), playWith(), putToSleep()
-- button to pass time --> decrease all properties.
-- when any tamagotchi has any property "0", report dead...(DELETE?)
+| Spec                                                                                                | Input           | Output                                   |
+| :-------------------------------------------------------------------------------------------------- | :-------------- | :--------------------------------------- |
+| Create a Tamagotchi object with a name and properties: food, care, and rest                         | Yoyo            | Yoyo: Food Level, Rest Level, Care Level |
+| Create a list of Tamagotchi objects with mentioned above properties and main page shows all of them | Yoyo, Yowie     | Yoyo, Yowie                              |
+| Create a button to increase Food Level for every Tamagotchi                                         | Feed            | Feed+=20                                 |
+| Create button to pass a time and decrease properties of all tamagotchis                             | Decrease Levels | Food-=10,                                |
+| Once some of tamagotchi's property level reached 0 it shows that tamagotchi is dead                 | Food = 0        | Tamagotchi is dead                       |
 
 ## Setup/Installation Requirements
 
