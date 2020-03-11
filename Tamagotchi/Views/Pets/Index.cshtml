@@ -5,31 +5,64 @@
 
 @* list of all tamagotchis and stats *@
 <h3>Tamagotchis</h3>
-@if (Model.Count == 0)
+@if (@Model.Count == 0)
 {
-  <p>There are no items in the list.</p>
+  <p>There are no tamagotchis right now.</p>
 }
-<ul>
   @foreach (Pet pet in Model)
   {
-    <li><a href='/pet/@pet.Id'>@pet.Name</a></li>
-    <li><form action="pets/@ped.Id">
-      <button type="submit" name=""></button>
-    </form></li>
-    <li><form action="pets/@ped.Id">
-      <button></button>
-    </form></li>
-    <li><form action="pets/@ped.Id">
-      <button></button>
-    </form></li>
-    <li><a href='/pet/@pet.Id'>@pet.Name</a></li>
-    <li><a href='/pet/@pet.Id'>@pet.Food</a></li>
-    <li><a href='/pet/@pet.Id'>@pet.Sleep</a></li>
-    <li><a href='/pet/@pet.Id'>@pet.Attention</a></li>
+    <div class="pet-name">
+      <a href='/pets/@pet.Id'>@pet.Name</a>
+    </div>
+
+    <div class="pet-food-container">
+      <form action="pets/@pet.Id/editfood">
+      <input class="pet-food" name="petId" type="hidden" value="@pet.Id">
+        <p>
+          <span>@pet.Food</span>
+          <span>
+            <button type="submit" name="button">
+          </button>
+          </span>
+        </p>
+      </form>
+    </div>
+    <div class="pet-sleep">
+      <form action="pets/@pet.Id/editsleep">
+      <input class="pet-sleep" name="petId" type="hidden" value="@pet.Id">
+        <p>
+          <span>@pet.Sleep</span>
+          <span>
+            <button type="submit" name="button">
+          </button>
+          </span>
+        </p>
+      </form>
+    </div>
+    //<a href="/pets/@pet.Id/edit">Rest</a>
+    <div class="pet-attention">
+      <form action="pets/@pet.Id/editattention">
+      <input class="pet-attention" name="petId" type="hidden" value="@pet.Id">
+        <p>
+          <span>@pet.Attention</span>
+          <span>
+            <button type="submit" name="button">
+          </button>
+          </span>
+        </p>
+      </form>
+    </div>
+    @* <li>
+      <form action="pets/@pet.Id">
+        <button></button>
+      </form>
+    </li>
+    <li>
+      <form action="pets/@pet.Id">
+        <button></button>
+      </form>
+    </li> *@
   }
-</ul>
-
-
 
 @* buttons/links with actions *@
 <a href="/pets/new">Make a new Tamagotchi!</a>

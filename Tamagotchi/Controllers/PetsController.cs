@@ -22,19 +22,47 @@ namespace Tamagotchi.Controllers
     [HttpPost("/pets")]
     public ActionResult Create(string name)
     {
-      Dictionary<string, object> model = new Dictionary<string, object>();
       Pet newPet = new Pet(name);
-      List<Pet> pets = Pet.GetTamagotchis();
-      model.Add("pet", newPet);
-      model.Add("pets", pets);
-      return View("Index", model);
+      return RedirectToAction("Index");
     }
+
+    [HttpPost("/pets/delete")]
+    public ActionResult Delete()
+    {
+      Pet.ClearPets();
+      return RedirectToAction("Index");
+    }
+
 
     [HttpGet("/pets/{petId}/show")]
     public ActionResult Show(int petId)
     {
       Pet pet = Pet.GetTamagotchi(petId);
       return View("Show", pet);
+    }
+
+    [HttpPost("/pets/{petId}/editfood")]
+    public ActionResult EditFood(string petId)
+    {
+      Pet newPet = Pet.GetTamagotchi(int.Parse(petId));
+      newPet.Feed();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost("/pets/{petId}/editsleep")]
+    public ActionResult EditSleep(string petId)
+    {
+      Pet newPet = Pet.GetTamagotchi(int.Parse(petId));
+      newPet.Feed();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost("/pets/{petId}/editattention")]
+    public ActionResult EditAttention(string petId)
+    {
+      Pet newPet = Pet.GetTamagotchi(int.Parse(petId));
+      newPet.Play();
+      return RedirectToAction("Index");
     }
 
   }

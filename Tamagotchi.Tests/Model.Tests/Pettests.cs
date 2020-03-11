@@ -25,27 +25,27 @@ namespace Tamagotchi.Tests
     }
 
     [TestMethod]
-    public void TamagotchiConstructor_CreatesListOfTamagotchis_TamagotchisList()
+    public void GetTamagotchis_ProvidesAccesstoTamagotchisList_TamagotchisList()
     {
       Pet.ClearPets();
       Pet Yoyo = new Pet("Yoyo");
       Pet Mametchi = new Pet("Mametchi");
       Pet Gozarutchi = new Pet("Gozarutchi");
-      List<Pet> pets = Pet.GetTamagotchis();
+      List<Pet> allPets = Pet.GetTamagotchis();
 
-      Assert.AreEqual(3, pets.Count);
+      Assert.AreEqual(3, allPets.Count);
     }
 
     [TestMethod]
-    public void TamagotchiConstructor_CreatesListOfTamagotchis_TamagotchisList()
+    public void GetTamagotchi_FindTamagothiByProvidedId_Tamagotchi()
     {
       Pet.ClearPets();
       Pet Yoyo = new Pet("Yoyo");
       Pet Mametchi = new Pet("Mametchi");
       Pet Gozarutchi = new Pet("Gozarutchi");
-      List<Pet> pets = Pet.GetTamagotchis();
+      Pet result = Pet.GetTamagotchi(1);
 
-      Assert.AreEqual(3, pets.Count);
+      Assert.AreEqual(result, Yoyo);
     }
 
     [TestMethod]
