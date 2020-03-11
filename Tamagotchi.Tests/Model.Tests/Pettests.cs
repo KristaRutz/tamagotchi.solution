@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tamagotchi.Models;
+using System.Collections.Generic;
 
 namespace Tamagotchi.Tests
 {
@@ -19,17 +20,32 @@ namespace Tamagotchi.Tests
     public void TamagotchiConstructor_CreatesNameOfTamagotchi_TamagotchiName()
     {
       Pet newTamagotchi = new Pet("Yoyo");
-      Assert.AreEqual("yoyo", newTamagotchi.Name);
+      Assert.AreEqual("Yoyo", newTamagotchi.Name);
       Assert.AreEqual(100, newTamagotchi.Attention);
     }
 
+    [TestMethod]
     public void TamagotchiConstructor_CreatesListOfTamagotchis_TamagotchisList()
     {
+      Pet.ClearPets();
       Pet Yoyo = new Pet("Yoyo");
       Pet Mametchi = new Pet("Mametchi");
       Pet Gozarutchi = new Pet("Gozarutchi");
+      List<Pet> pets = Pet.GetTamagotchis();
 
-      Assert.AreEqual();
+      Assert.AreEqual(3, pets.Count);
+    }
+
+    [TestMethod]
+    public void TamagotchiConstructor_CreatesListOfTamagotchis_TamagotchisList()
+    {
+      Pet.ClearPets();
+      Pet Yoyo = new Pet("Yoyo");
+      Pet Mametchi = new Pet("Mametchi");
+      Pet Gozarutchi = new Pet("Gozarutchi");
+      List<Pet> pets = Pet.GetTamagotchis();
+
+      Assert.AreEqual(3, pets.Count);
     }
 
     [TestMethod]
@@ -49,7 +65,7 @@ namespace Tamagotchi.Tests
       Pet newTamagotchi = new Pet("Yoyo");
       newTamagotchi.Food = 40;
       newTamagotchi.Feed();
-      Assert.AreEqual(60, newTamagotchi.Sleep);
+      Assert.AreEqual(60, newTamagotchi.Food);
     }
 
     [TestMethod]

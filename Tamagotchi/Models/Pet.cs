@@ -92,5 +92,10 @@ namespace Tamagotchi.Models
     {
       return _tamagotchis;
     }
+
+    public static void ClearPets()
+    {
+      _tamagotchis.Clear();
+    }
   }
 }
