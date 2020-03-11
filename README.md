@@ -51,4 +51,4 @@ For feedback, questions and/or ideas, please email
 
 This software is licensed under the MIT license.
 
-Copyright (c) 2020 **Andrew Philott, Krista Rutz and Andriy Veremyeyev**
+Copyright (c) 2020 **Andrew Philpott, Krista Rutz and Andriy Veremyeyev**

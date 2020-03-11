@@ -26,8 +26,8 @@ namespace Tamagotchi.Controllers
       return View();
     }
 
-    [HttpPost("/pets/delete")]
-    public ActionResult Delete()
+    [HttpPost("/pets/delete/all")]
+    public ActionResult DeleteAll()
     {
       Pet.ClearPets();
       return RedirectToAction("Index");
@@ -43,8 +43,7 @@ namespace Tamagotchi.Controllers
     [HttpGet("/pets/{Id}/show")]
     public ActionResult Show(int Id)
     {
-      Pet pet = Pet.GetTamagotchi(Id);
-      return View(pet);
+      return View(Pet.GetTamagotchi(Id));
     }
 
     [HttpPost("/pets/{Id}/Food")]
@@ -65,6 +64,13 @@ namespace Tamagotchi.Controllers
     public ActionResult UpdateAttention(string Id)
     {
       Pet.GetTamagotchi(int.Parse(Id)).Play();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost("/pets/{Id}/Delete")]
+    public ActionResult Delete(string Id)
+    {
+      Pet.DeletePet(int.Parse(Id));
       return RedirectToAction("Index");
     }
 

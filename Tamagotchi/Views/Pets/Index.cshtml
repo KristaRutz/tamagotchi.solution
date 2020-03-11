@@ -21,7 +21,7 @@
     <div class="pet-container">
       
       <div class="pet-name">
-        <h2>Name: <a href='/pets/@pet.Id'>@pet.Name</h2>
+        <h2>Name: <a href='/pets/@pet.Id/show'>@pet.Name</h2>
       </div>
 
       @if (@pet.IsTamagotchiDead())
@@ -31,39 +31,45 @@
 
         <div class="pet-property">
           <form action="/pets/@pet.Id/Food" method="post">
-            <input name="Id" type="hidden" value="@pet.Id">
-            <p><span>@pet.Food</span>
-              <span>
-                <button class="btn btn-primary" type="submit">Feed</button>
-              </span>
-            </p>
+            <div class="pet-property-display">
+              <input name="Id" type="hidden" value="@pet.Id">
+              <p><span>@pet.Food</span></p>
+            </div>
+            <div class="pet-button">
+              <button class="btn btn-primary" type="submit">Feed</button>
+            </div>    
           </form>
         </div>
 
         <div class="pet-property">
           <form action="/pets/@pet.Id/Sleep" method="post">
-            <input name="Id" type="hidden" value="@pet.Id">
-            <p><span>@pet.Sleep</span>
-              <span>
-                <button class="btn btn-primary" type="submit">Sleep</button>
-              </span>
-            </p>
+            <div class="pet-property-display">
+              <input name="Id" type="hidden" value="@pet.Id">
+              <p><span>@pet.Sleep</span>
+            </div>
+            <div class="pet-button">
+              <button class="btn btn-primary" type="submit">Sleep</button>
+            </div>
           </form>
         </div>
 
         <div class="pet-property">
           <form action="/pets/@pet.Id/Attention" method="post">
-          <input name="Id" type="hidden" value="@pet.Id">
-            <p>
-              <span>@pet.Attention</span>
-              <span>
-                <button class="btn btn-primary" type="submit">Play</button>
-              </span>
-            </p>
+            <div class="pet-property-display">
+              <input name="Id" type="hidden" value="@pet.Id">
+              <p><span>@pet.Attention</span></p>
+            </div>
+            <div>
+              <button class="btn btn-primary" type="submit">Play</button>
+            </div>
           </form>
         </div>
-      }
 
+        <form action="/pets/@pet.Id/Delete" method="post">
+          <input name="Id" type="hidden" value="@pet.Id">
+          <button class="btn btn-primary" type="submit">Delete</button>
+        </form>
+      }
     </div>
   }
 
@@ -75,7 +81,7 @@
 
 <a class="btn btn-large" href="/pets/new">Make a new Tamagotchi!</a>
 
-<form class="btn btn-large" action="/pets/delete" method="post">
+<form class="btn btn-large" action="/pets/delete/all" method="post">
   <button type="submit" name="button">Remove all Pets</button>
 </form>
 </div>

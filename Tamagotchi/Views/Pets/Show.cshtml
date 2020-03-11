@@ -7,20 +7,39 @@
 <div class="jumbotron">
   <h1>Tamagotchi</h1>
 </div>
-<div>
 
-  @foreach(Pet tamagotchi in @Model)
-  {
-    <h3>@tamagotchi.Name</h3>
+<div class="pet-details">
+  <h3>@Model.Name</h3>
 
-    <p>Food Level: @tamagotchi.Food</p>
-    <p>Attention Level: @tamagotchi.Attention</p>
-    <p>Rest Level: @tamagotchi.Sleep</p>
-  }
+  <p>Food Level: @Model.Food</p>
+  <p>Attention Level: @Model.Attention</p>
+  <p>Rest Level: @Model.Sleep</p>
+</div>
 
-<h3><a href='/'>Feed</a><h3>
-<h3><a href='/'>Play With</a><h3>
-<h3><a href='/'>Rest</a><h3>
+<div class="pet-property">
+  <form action="/pets/@Model.Id/Food" method="post">
+    <input name="Id" type="hidden" value="@Model.Id">
+    <button class="btn btn-primary" type="submit">Feed</button>
+  </form>
+</div>
 
-<h3><a href='/'>Edit Name</a><h3>
-<h3><a href='/'>Delete this Pet</a><h3>
+<div class="pet-property">
+  <form action="/pets/@Model.Id/Sleep" method="post">
+    <input name="Id" type="hidden" value="@Model.Id">
+    <button class="btn btn-primary" type="submit">Sleep</button>
+  </form>
+</div>
+
+<div class="pet-property">
+  <form action="/pets/@Model.Id/Attention" method="post">
+    <input name="Id" type="hidden" value="@Model.Id">
+    <button class="btn btn-primary" type="submit">Play</button>
+  </form>
+</div>
+
+@* <h3><a href='/'>Edit Name</a><h3> *@
+  <h3><a href='/pets'>Back To Pets</a><h3></h3>
+<form class="btn btn-large" action="/pets/@Model.Id/Delete" method="post">
+  <input name="Id" type="hidden" value="@Model.Id">
+  <button type="submit" name="button">Delete this pet.</button>
+</form>
