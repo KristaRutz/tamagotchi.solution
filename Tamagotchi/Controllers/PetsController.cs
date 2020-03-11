@@ -13,17 +13,17 @@ namespace Tamagotchi.Controllers
       return View(pets);
     }
 
-    [HttpGet("/pets/new")]
-    public ActionResult New()
-    {
-      return View();
-    }
-
     [HttpPost("/pets")]
     public ActionResult Create(string name)
     {
       Pet newPet = new Pet(name);
       return RedirectToAction("Index");
+    }
+
+    [HttpGet("/pets/new")]
+    public ActionResult New()
+    {
+      return View();
     }
 
     [HttpPost("/pets/delete")]
@@ -33,35 +33,42 @@ namespace Tamagotchi.Controllers
       return RedirectToAction("Index");
     }
 
-
-    [HttpGet("/pets/{petId}/show")]
-    public ActionResult Show(int petId)
+    [HttpPost("/pets/edit")]
+    public ActionResult EditAll()
     {
-      Pet pet = Pet.GetTamagotchi(petId);
-      return View("Show", pet);
-    }
-
-    [HttpPost("/pets/{petId}/editfood")]
-    public ActionResult EditFood(string petId)
-    {
-      Pet newPet = Pet.GetTamagotchi(int.Parse(petId));
-      newPet.Feed();
+      Pet.IncreaseTime();
       return RedirectToAction("Index");
     }
 
-    [HttpPost("/pets/{petId}/editsleep")]
-    public ActionResult EditSleep(string petId)
+    [HttpGet("/pets/{Id}/show")]
+    public ActionResult Show(int Id)
     {
-      Pet newPet = Pet.GetTamagotchi(int.Parse(petId));
-      newPet.Feed();
+      Pet pet = Pet.GetTamagotchi(Id);
+      return View(pet);
+    }
+
+    [HttpPost("/pets/{Id}/Food")]
+    public ActionResult EditFood(string Id)
+    {
+      Pet.GetTamagotchi(int.Parse(Id)).Feed();
+      // newPet.Feed();
       return RedirectToAction("Index");
     }
 
-    [HttpPost("/pets/{petId}/editattention")]
-    public ActionResult EditAttention(string petId)
+    [HttpPost("/pets/{Id}/Sleep")]
+    public ActionResult EditSleep(string Id)
     {
-      Pet newPet = Pet.GetTamagotchi(int.Parse(petId));
-      newPet.Play();
+      Pet.GetTamagotchi(int.Parse(Id)).Rest();
+      // Pet newPet =
+
+      // newPet.Feed();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost("/pets/{Id}/Attention")]
+    public ActionResult EditAttention(string Id)
+    {
+      Pet.GetTamagotchi(int.Parse(Id)).Play();
       return RedirectToAction("Index");
     }
 

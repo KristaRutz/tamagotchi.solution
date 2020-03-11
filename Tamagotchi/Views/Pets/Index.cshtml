@@ -3,6 +3,10 @@
 
 <h1>Tamagotchi World</h1>
 
+<form action="/pets/edit" method="post">
+  <button type="submit" name="button">Increase Time</button>
+</form>
+
 @* list of all tamagotchis and stats *@
 <h3>Tamagotchis</h3>
 @if (@Model.Count == 0)
@@ -12,42 +16,49 @@
   @foreach (Pet pet in Model)
   {
     <div class="pet-name">
-      <a href='/pets/@pet.Id'>@pet.Name</a>
+      <p>Name:
+        <a href='/pets/@pet.Id'>@pet.Name</a>
+      </p>
     </div>
 
+    @if (@pet.IsTamagotchiDead())
+    {
+      <p>This pet has died.</p>
+    } else {
     <div class="pet-food-container">
-      <form action="pets/@pet.Id/editfood">
-      <input class="pet-food" name="petId" type="hidden" value="@pet.Id">
+      <form action="/pets/@pet.Id/Food" method="post">
+      <input class="pet-food" name="Id" type="hidden" value="@pet.Id">
+      <input name="petFood" type="hidden" value="@pet.Food">
         <p>
           <span>@pet.Food</span>
           <span>
-            <button type="submit" name="button">
-          </button>
+            <button type="submit">Feed</button>
           </span>
         </p>
       </form>
     </div>
+
     <div class="pet-sleep">
-      <form action="pets/@pet.Id/editsleep">
-      <input class="pet-sleep" name="petId" type="hidden" value="@pet.Id">
+      <form action="/pets/@pet.Id/Sleep" method="post">
+      <input class="pet-sleep" name="Id" type="hidden" value="@pet.Id">
+       <input name="petSleep" type="hidden" value="@pet.Sleep">
         <p>
           <span>@pet.Sleep</span>
           <span>
-            <button type="submit" name="button">
-          </button>
+            <button type="submit">Sleep</button>
           </span>
         </p>
       </form>
     </div>
+
     //<a href="/pets/@pet.Id/edit">Rest</a>
     <div class="pet-attention">
-      <form action="pets/@pet.Id/editattention">
-      <input class="pet-attention" name="petId" type="hidden" value="@pet.Id">
+      <form action="/pets/@pet.Id/Attention" method="post">
+      <input class="pet-attention" name="Id" type="hidden" value="@pet.Id">
         <p>
           <span>@pet.Attention</span>
           <span>
-            <button type="submit" name="button">
-          </button>
+          <button type="submit">Play</button>
           </span>
         </p>
       </form>
@@ -62,6 +73,7 @@
         <button></button>
       </form>
     </li> *@
+    }
   }
 
 @* buttons/links with actions *@
