@@ -2,7 +2,7 @@
 
 #### C# Basic Web Application Project for Epicodus, 03/11/2020
 
-#### By Andrew Philott, Krista Rutz and Andriy Veremyeyev
+#### By Andrew Philott, Krista Rutz, and Andriy Veremyeyev
 
 ## Description
 
@@ -43,7 +43,6 @@ For feedback, questions and/or ideas, please email
 
 - HTML
 - CSS
-- .NET
 - C#
 - ASP.NET Core MVC
 

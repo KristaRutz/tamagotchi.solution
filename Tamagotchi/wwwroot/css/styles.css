@@ -1,14 +1,50 @@
-.pet-container {
+/* .pet-container {
   width: 100%;
   height: 30%;
   border: 1px solid black;
+} */
+.pet-container h2,
+a {
+  color: blue;
 }
-.pet-container :nth-of-type(1) {
+.pet-container {
+  margin: 10px;
+  padding: 40px;
+  border-radius: 90px;
+}
+
+.btn {
+  border-radius: 20px;
+  margin: 2px;
+}
+
+.pet-container button {
+  border-radius: 20px;
+  width: 90px;
+}
+.pet-image {
+  height: 200px;
+  width: 200px;
+  float: right;
+}
+.pet-container:nth-of-type(1) {
   background-color: lightblue;
 }
-.pet-container :nth-of-type(2) {
+.pet-container:nth-of-type(2) {
   background-color: lightgreen;
 }
-.pet-container :nth-of-type(3) {
+.pet-container:nth-of-type(3) {
   background-color: lightyellow;
+}
+.pet-image:nth-of-type(1) {
+  background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.akc.org%2Fexpert-advice%2Flifestyle%2F35-perfect-pictures-of-dogs%2F&psig=AOvVaw2C68A4abVvYuKsRHlSLgz1&ust=1584054572910000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIjj0aPFk-gCFQAAAAAdAAAAABAD");
+}
+.pet-image:nth-of-type(2) {
+  background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.akc.org%2Fexpert-advice%2Flifestyle%2F35-perfect-pictures-of-dogs%2F&psig=AOvVaw2C68A4abVvYuKsRHlSLgz1&ust=1584054572910000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIjj0aPFk-gCFQAAAAAdAAAAABAD");
+}
+.pet-image:nth-of-type(3) {
+  background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.akc.org%2Fexpert-advice%2Flifestyle%2F35-perfect-pictures-of-dogs%2F&psig=AOvVaw2C68A4abVvYuKsRHlSLgz1&ust=1584054572910000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIjj0aPFk-gCFQAAAAAdAAAAABAD");
+}
+body {
+  font-size: 16px;
 }
