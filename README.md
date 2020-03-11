@@ -10,3 +10,5 @@ Specs:
   - feed(), playWith(), putToSleep()
 - button to pass time --> decrease all properties.
 - when any tamagotchi has any property "0", report dead...(DELETE?)
+
+- USE MVC
