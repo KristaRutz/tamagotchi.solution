@@ -11,9 +11,6 @@ namespace Tamagotchi.Models
     public int Food { get; set; }
     public int Sleep { get; set; }
 
-    public Pet()
-    {
-    }
     public Pet(string name)
     {
       Name = name;
@@ -71,6 +68,7 @@ namespace Tamagotchi.Models
       }
       return false;
     }
+
     public void DecreaseRest()
     {
       Sleep -= 5;
@@ -79,15 +77,32 @@ namespace Tamagotchi.Models
     {
       Attention -= 5;
     }
+
     public void DecreaseFood()
     {
       Food -= 5;
     }
+
+    public static void IncreaseTime()
+    {
+      foreach (Pet tamagotchi in _tamagotchis)
+      {
+        tamagotchi.DecreaseFood();
+        tamagotchi.DecreaseRest();
+        tamagotchi.DecreaseAttention();
+      }
+    }
+
     public static Pet GetTamagotchi(int id)
     {
-      Pet pet = _tamagotchis.Find(x => x.Id == id);
-      return pet;
+      return _tamagotchis.Find(x => x.Id == id);
     }
+
+    public static Pet Find(int searchId)
+    {
+      return _tamagotchis[searchId - 1];
+    }
+
     public static List<Pet> GetTamagotchis()
     {
       return _tamagotchis;
