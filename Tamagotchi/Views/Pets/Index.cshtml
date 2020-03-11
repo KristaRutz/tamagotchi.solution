@@ -19,9 +19,9 @@
 @foreach (Pet pet in @Model)
   {
     <div class="pet-container">
+      
       <div class="pet-name">
-        <p>Name: <a href='/pets/@pet.Id'>@pet.Name</a>
-        </p>
+        <h2>Name: <a href='/pets/@pet.Id'>@pet.Name</h2>
       </div>
 
       @if (@pet.IsTamagotchiDead())
@@ -34,7 +34,7 @@
             <input name="Id" type="hidden" value="@pet.Id">
             <p><span>@pet.Food</span>
               <span>
-                <button type="submit">Feed</button>
+                <button class="btn btn-primary" type="submit">Feed</button>
               </span>
             </p>
           </form>
@@ -45,7 +45,7 @@
             <input name="Id" type="hidden" value="@pet.Id">
             <p><span>@pet.Sleep</span>
               <span>
-                <button type="submit">Sleep</button>
+                <button class="btn btn-primary" type="submit">Sleep</button>
               </span>
             </p>
           </form>
@@ -57,16 +57,18 @@
             <p>
               <span>@pet.Attention</span>
               <span>
-                <button type="submit">Play</button>
+                <button class="btn btn-primary" type="submit">Play</button>
               </span>
             </p>
           </form>
         </div>
       }
+
     </div>
   }
 
 @* buttons/links with actions *@
+<div class="pet-container">
 <form action="/pets/updateall" method="post">
   <button class="btn btn-large" type="submit" name="button">Increase Time</button>
 </form>
@@ -76,3 +78,4 @@
 <form class="btn btn-large" action="/pets/delete" method="post">
   <button type="submit" name="button">Remove all Pets</button>
 </form>
+</div>
