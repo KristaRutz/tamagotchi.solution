@@ -1,1 +1,13 @@
-l
+.pet-container {
+  width: 100%;
+  border: 1px solid black;
+}
+.pet-container :nth-of-type(1) {
+  background-color: lightblue;
+}
+.pet-container :nth-of-type(2) {
+  background-color: lightgreen;
+}
+.pet-container :nth-of-type(3) {
+  background-color: lightyellow;
+}

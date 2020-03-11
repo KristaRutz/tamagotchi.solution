@@ -33,8 +33,8 @@ namespace Tamagotchi.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpPost("/pets/edit")]
-    public ActionResult EditAll()
+    [HttpPost("/pets/updateall")]
+    public ActionResult UpdateAll()
     {
       Pet.IncreaseTime();
       return RedirectToAction("Index");
@@ -48,25 +48,21 @@ namespace Tamagotchi.Controllers
     }
 
     [HttpPost("/pets/{Id}/Food")]
-    public ActionResult EditFood(string Id)
+    public ActionResult UpdateFood(string Id)
     {
       Pet.GetTamagotchi(int.Parse(Id)).Feed();
-      // newPet.Feed();
       return RedirectToAction("Index");
     }
 
     [HttpPost("/pets/{Id}/Sleep")]
-    public ActionResult EditSleep(string Id)
+    public ActionResult UpdateSleep(string Id)
     {
       Pet.GetTamagotchi(int.Parse(Id)).Rest();
-      // Pet newPet =
-
-      // newPet.Feed();
       return RedirectToAction("Index");
     }
 
     [HttpPost("/pets/{Id}/Attention")]
-    public ActionResult EditAttention(string Id)
+    public ActionResult UpdateAttention(string Id)
     {
       Pet.GetTamagotchi(int.Parse(Id)).Play();
       return RedirectToAction("Index");

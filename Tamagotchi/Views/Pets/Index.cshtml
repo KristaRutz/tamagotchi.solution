@@ -3,18 +3,18 @@
 
 <h1>Tamagotchi World</h1>
 
-<form action="/pets/edit" method="post">
-  <button type="submit" name="button">Increase Time</button>
-</form>
+
 
 @* list of all tamagotchis and stats *@
 <h3>Tamagotchis</h3>
+
 @if (@Model.Count == 0)
 {
   <p>There are no tamagotchis right now.</p>
-}
+} 
   @foreach (Pet pet in Model)
   {
+    <div class="pet-container">
     <div class="pet-name">
       <p>Name:
         <a href='/pets/@pet.Id'>@pet.Name</a>
@@ -24,10 +24,11 @@
     @if (@pet.IsTamagotchiDead())
     {
       <p>This pet has died.</p>
-    } else {
-    <div class="pet-food-container">
+    }
+
+    <div class="pet-property">
       <form action="/pets/@pet.Id/Food" method="post">
-      <input class="pet-food" name="Id" type="hidden" value="@pet.Id">
+      <input name="Id" type="hidden" value="@pet.Id">
         <p>
           <span>@pet.Food</span>
           <span>
@@ -37,9 +38,9 @@
       </form>
     </div>
 
-    <div class="pet-sleep">
+    <div class="pet-property">
       <form action="/pets/@pet.Id/Sleep" method="post">
-      <input class="pet-sleep" name="Id" type="hidden" value="@pet.Id">
+      <input name="Id" type="hidden" value="@pet.Id">
         <p>
           <span>@pet.Sleep</span>
           <span>
@@ -49,33 +50,31 @@
       </form>
     </div>
 
-    //<a href="/pets/@pet.Id/edit">Rest</a>
-    <div class="pet-attention">
+    <div class="pet-property">
       <form action="/pets/@pet.Id/Attention" method="post">
-      <input class="pet-attention" name="Id" type="hidden" value="@pet.Id">
+      <input name="Id" type="hidden" value="@pet.Id">
         <p>
           <span>@pet.Attention</span>
           <span>
-          <button type="submit">Play</button>
+            <button type="submit">Play</button>
           </span>
         </p>
       </form>
     </div>
-    @* <li>
-      <form action="pets/@pet.Id">
-        <button></button>
-      </form>
-    </li>
-    <li>
-      <form action="pets/@pet.Id">
-        <button></button>
-      </form>
-    </li> *@
-    }
   }
 
+</div>
 @* buttons/links with actions *@
-<a href="/pets/new">Make a new Tamagotchi!</a>
-<form action="/pets/delete" method="post">
+<form action="/pets/updateall" method="post">
+  <button class="btn btn-large" type="submit" name="button">Increase Time</button>
+</form>
+
+<a class="btn btn-large" href="/pets/new">Make a new Tamagotchi!</a>
+
+<form class="btn btn-large" action="/pets/delete" method="post">
   <button type="submit" name="button">Remove all Pets</button>
 </form>
+
+<script>
+var timer = setInterval(function () { Slider() }, 25000);
+</script>
