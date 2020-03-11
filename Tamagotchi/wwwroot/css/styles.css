@@ -23,6 +23,7 @@ a {
   width: 90px;
 }
 .pet-image {
+  display: block;
   height: 200px;
   width: 200px;
   float: right;
@@ -36,6 +37,7 @@ a {
 .pet-container:nth-of-type(3) {
   background-color: lightyellow;
 }
+/* }
 .pet-image:nth-of-type(1) {
   background-image: url("https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2018/01/12201051/cute-puppy-body-image.jpg");
 }
@@ -44,7 +46,7 @@ a {
 }
 .pet-image:nth-of-type(3) {
   background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-dog-royalty-free-image-505534037-1565105327.jpg");
-}
+} */
 body {
   font-size: 16px;
 }
