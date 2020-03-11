@@ -43,7 +43,7 @@ namespace Tamagotchi.Controllers
     [HttpGet("/pets/{Id}/show")]
     public ActionResult Show(int Id)
     {
-      return View(Pet.GetTamagotchi(Id));
+      return View(Pet.Find(Id));
     }
 
     [HttpPost("/pets/{Id}/Food")]

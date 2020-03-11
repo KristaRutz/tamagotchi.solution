@@ -34,7 +34,7 @@
     <div class="pet-container">
 
       <div class="pet-name">
-        <h2><a href='/pets/@pet.Id/show'>@pet.Name</a></h2>
+        <h2><a href="/pets/@pet.Id/show">@pet.Name</a></h2>
         <form action="/pets/@pet.Id/Delete" method="post">
           <input name="Id" type="hidden" value="@pet.Id">
           <button class="btn btn-danger" type="submit">Delete</button>
@@ -44,7 +44,8 @@
       @if (@pet.IsTamagotchiDead())
       {
         <p>This pet has died.</p>
-        <img class="center" src="https://www.pngkey.com/png/detail/413-4138064_descargar-mametchi-png.png" width="300px">
+        <div id="sadpet">
+        </div>
       } else {
 
         <div class="pet-property form-group">
@@ -76,7 +77,7 @@
             </div>
           </form>
         </div>
-        <div class="pet-image">
+        <div class="pet-image"><a></a>
         </div>
 
       }
