@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using Tamagotchi.Models;
 
-namespace ToDoList.Controllers
+namespace Tamagotchi.Controllers
 {
   public class HomeController : Controller
   {
